@@ -1,5 +1,5 @@
 {
-  "name": "next-i18n-routes",
+  "name": "@t_rik/next-i18n-routes",
   "version": "0.0.0",
   "description": "",
   "main": "dist/index.js",
