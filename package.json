@@ -1,0 +1,19 @@
+{
+  "name": "next-i18n-routes",
+  "version": "0.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Tomáš Uhrík",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/express": "^4.17.3",
+    "next": "^9.3.0"
+  },
+  "dependencies": {
+    "path-to-regexp": "^6.1.0"
+  }
+}
