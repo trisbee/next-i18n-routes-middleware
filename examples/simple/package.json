@@ -1,0 +1,20 @@
+{
+  "name": "simple",
+  "version": "1.0.0",
+  "description": "An \"simple example\" for next-i18n-routes package",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next build && node --inspect ./server/index.js",
+    "build": "next build",
+    "start": "NODE_ENV=production node ./server/index.js"
+  },
+  "author": "Tomáš Uhrík",
+  "license": "ISC",
+  "dependencies": {
+    "@t_rik/next-i18n-routes": "^0.1.1",
+    "express": "^4.17.1",
+    "next": "^9.3.5",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  }
+}

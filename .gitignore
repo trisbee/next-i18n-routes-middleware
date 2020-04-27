@@ -1,3 +1,6 @@
 node_modules
 dist
 .idea
+
+# ignored in examples
+examples/simple/.next
