@@ -1,4 +1,4 @@
-# Next-i18n-routes
+# next-i18n-routes-middleware
 
 A middleware (+ utility tools) for having fully internationalized routes in your Next.js apps.
 
