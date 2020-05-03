@@ -11,7 +11,7 @@ A middleware (+ utility tools) for having fully internationalized routes in your
 ```
     const express = require("express");
     const next = require("next");
-    const getNextI18nRoutesMiddleware = require("npm-ts-package-test").getNextI18nRoutesMiddleware;
+    const getNextI18nRoutesMiddleware = require("@trisbee/next-i18n-routes-middleware").getNextI18nRoutesMiddleware;
     const routes = require('./routes').routes;
 
     const app = next({ isInDevMode });
