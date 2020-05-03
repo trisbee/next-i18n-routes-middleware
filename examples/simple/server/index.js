@@ -5,7 +5,7 @@ const routes = require('./routes').routes;
 const supportedLangs = require('./routes').supportedLangs;
 const express = require("express");
 const next = require("next");
-const getNextI18nRoutesMiddleware = require("@t_rik/next-i18n-routes").getNextI18nRoutesMiddleware;
+const getNextI18nRoutesMiddleware = require("@trisbee/next-i18n-routes-middleware").getNextI18nRoutesMiddleware;
 
 const isInDevMode = process.env.NODE_ENV !== "production";
 const app = next({ isInDevMode });

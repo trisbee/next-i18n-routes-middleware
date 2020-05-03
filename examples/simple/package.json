@@ -11,7 +11,7 @@
   "author": "Tomáš Uhrík",
   "license": "ISC",
   "dependencies": {
-    "@t_rik/next-i18n-routes": "^0.1.1",
+    "@trisbee/next-i18n-routes-middleware": "^0.1.3",
     "express": "^4.17.1",
     "next": "^9.3.5",
     "react": "^16.13.1",
