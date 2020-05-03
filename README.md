@@ -3,9 +3,11 @@
 A middleware (+ utility tools) for having fully internationalized routes in your Next.js apps.
 
 ## How to use
-1. Prepare a custom server: https://nextjs.org/docs/advanced-features/custom-server
-1. Prepare a your routes catalog in compliance with [Next-i18n-routes routing convention](./docs/ROUING_CONVENTION.md) 
-1. Set up `NextI18nRoutesMiddleware` such as in the example below:
+
+1. Install this dependency: `npm install next-i18n-routes-middleware --save`
+2. Prepare a [custom server](https://nextjs.org/docs/advanced-features/custom-server)
+3. Prepare a your routes catalog in compliance with [Next-i18n-routes routing convention](./docs/ROUING_CONVENTION.md)
+4. Set up `NextI18nRoutesMiddleware` such as in the example below:
 ```
     const express = require("express");
     const next = require("next");
@@ -22,12 +24,12 @@ A middleware (+ utility tools) for having fully internationalized routes in your
             server,
             app,
             { 
-                supportedLangs: ['en', 'cs'],
+                supportedLangs: ['en', 'de', 'cs'],
                 routes: routes,
                 shouldHandleEmptyRoute: true
             }
         )
-        );
+      );
     
       server.listen(process.env.PORT || 3000);
     });
