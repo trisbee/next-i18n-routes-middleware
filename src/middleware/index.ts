@@ -43,6 +43,16 @@ const getNextI18nRoutesMiddleware: GetNextI18nRoutesMiddleware = (
       );
     });
 
+    const handle = app.getRequestHandler();
+
+    server.get("*", (req, res) => {
+      handle(req, res);
+    });
+
+    server.post('*', (req, res) => {
+      return handle(req, res)
+    });
+
     next();
   };
 };
