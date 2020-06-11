@@ -1,16 +1,15 @@
+import Layout from "../src/components/Layout";
+
 const BrandPage = (props) => {
     return (
-        <div>
+        <Layout>
             <h1>Selected brand is: {props.brand}</h1>
-        </div>
+        </Layout>
     );
 };
 
 BrandPage.getInitialProps = ({ query }) => {
-    const { year, model, brand } = query;
-
-    console.log(query);
-
+    const { brand } = query;
     return {
         brand: brand
     }

@@ -1,12 +1,14 @@
+import Layout from "../../../src/components/Layout";
+
 const YearPage = (props) => {
     return (
-        <div>
+        <Layout>
             <h1>Selected year is: {props.year}</h1>
             <ul>
                 <li>Selected model is: {props.model}</li>
                 <li>Selected brand is: {props.brand}</li>
             </ul>
-        </div>
+        </Layout>
     );
 };
 
