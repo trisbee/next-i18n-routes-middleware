@@ -1,6 +1,6 @@
 {
   "name": "@trisbee/next-i18n-routes-middleware",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "A middleware (+ utility tools) for having fully internationalized routes in your Next.js apps.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
