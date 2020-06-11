@@ -1,5 +1,11 @@
+import Layout from "./src/components/Layout";
+
 const Subpage = () => {
-  return <h1>I am a subpage</h1>
+  return (
+      <Layout>
+        <h1>I am a subpage</h1>
+      </Layout>
+  )
 };
 
 export default Subpage;
