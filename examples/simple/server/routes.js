@@ -7,7 +7,10 @@ const paths = {
   homepage: "/route:homepage",
   subpage: '/route:subpage',
   dynamic: "/route:dynamic",
-  dynamicComplex: '/route:dynamicComplex'
+  dynamicComplex: '/route:dynamicComplex',
+  brand: "/route:brand",
+  model: "/route:model",
+  year: "/route:year"
 };
 
 const routes = [
@@ -21,10 +24,10 @@ const routes = [
   },
   {
     id: paths.subpage,
-    template: '/subpage',
+    template: "/subpage",
     aliases: {
-      cs: '/cs/podstranka',
-      en: '/en/subpage',
+      cs: "/cs/podstranka",
+      en: "/en/subpage",
     }
   },
   {
@@ -41,6 +44,30 @@ const routes = [
     aliases: {
       cs: "/cs/dynamicka/:x/komplikovana/:y",
       en: "/en/dynamic/:x/complex/:y"
+    }
+  },
+  {
+    id: paths.brand,
+    template: "/[brand]",
+    aliases: {
+      cs: "/cs/:brand",
+      en: "/en/:brand"
+    }
+  },
+  {
+    id: paths.model,
+    template: "/[brand]/[model]",
+    aliases: {
+      cs: "/cs/:brand/:model",
+      en: "/en/:brand/:model"
+    }
+  },
+  {
+    id: paths.year,
+    template: "/[brand]/[model]/[year]",
+    aliases: {
+      cs: "/cs/:brand/:model/:year",
+      en: "/en/:brand/:model/:year"
     }
   },
 ];
