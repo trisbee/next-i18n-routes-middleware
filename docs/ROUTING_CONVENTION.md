@@ -12,9 +12,9 @@ const paths = {
 example:
 ```
 const paths = {
-  homepage: "homepage",
-  other: "other",
-  dynamic: "dynamic",
+  homepage: "/route:homepage",
+  brand: "/route:brand",
+  model: "/route:model",
 };
 ```
 
@@ -41,10 +41,19 @@ example:
 ```
 const routes = [
   {
-    id: paths.other,
+    id: paths.homepage,
     template: "/",
     aliases: {
-      en: "/en/other"
-      cs: "/cs/jina",
+      en: "/en"
+      cs: "/cs",
     }
-},
+  },
+  {
+    id.paths.brand,
+    template: "/[brand]",
+    aliases: {
+      en: "/en/:brand"
+      cs: "/cs/:brand",
+    }
+  }
+];
