@@ -1,5 +1,5 @@
 import { match as createMatcher } from 'path-to-regexp';
-import { Route } from './types';
+import { Route, Redirect } from './types';
 import { getPathParsed, sliceOutQueryString } from './utils';
 
 const getPath = (url: string): string => {
@@ -38,4 +38,15 @@ const getRouteMatchedObject = (routes: Route[], path: string, currentLang: strin
   };
 };
 
-export { getPath, getRouteMatchedObject }
+const getPermanentRedirect = (redirects: Redirect[], path: string) => {
+  let redirectTo = null;
+  redirects.forEach(redirect => {
+    if (redirect.from === path) {
+      redirectTo = redirect.to;
+    }
+  });
+
+  return redirectTo;
+};
+
+export { getPath, getRouteMatchedObject, getPermanentRedirect }

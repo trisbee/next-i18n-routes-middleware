@@ -1,9 +1,10 @@
-import { Route } from '../utils/routing/types';
+import {Route, Redirect} from '../utils/routing/types';
 import { Application, RequestHandler } from 'express';
 
 interface NextI18nRoutesSettings {
   supportedLangs: string[],
   routes: Route[],
+  redirects: Redirect[],
   shouldHandleEmptyRoute?: boolean,
 }
 

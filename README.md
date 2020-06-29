@@ -26,6 +26,7 @@ A middleware (+ utility tools) for having fully internationalized routes in your
             { 
                 supportedLangs: ['en', 'de', 'cs'],
                 routes: routes,
+                redirects: []
                 shouldHandleEmptyRoute: true
             }
         )

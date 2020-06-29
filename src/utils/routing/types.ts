@@ -10,7 +10,12 @@ interface Route {
   aliases: Aliases
 }
 
+interface Redirect {
+  from: string,
+  to: string
+}
+
 type GetPathParsed = (route: Route, path: string, currentLang: string ) => Match<object>
 type SliceOutQueryString = (url: string) => string
 
-export { Aliases, Route, GetPathParsed, SliceOutQueryString }
+export { Aliases, Route, Redirect, GetPathParsed, SliceOutQueryString }

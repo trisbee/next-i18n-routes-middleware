@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
 import { parse } from 'url';
-import { getPath, getRouteMatchedObject } from '../utils/routing';
+import { getPath, getRouteMatchedObject, getPermanentRedirect } from '../utils/routing';
 import { getPatternSupportedLangs } from '../utils/lang';
 import { NextFunction } from 'connect';
 import { GetNextI18nRoutesMiddleware } from './types';
@@ -27,6 +27,14 @@ const getNextI18nRoutesMiddleware: GetNextI18nRoutesMiddleware = (
       const lang = reqEndpoint.params.lang;
       const query = parse(reqEndpoint.url, true).query;
       const responseQuery = {...query, lang};
+
+      // permanent redirect with 301 from server
+      const redirectTo = getPermanentRedirect(settings.redirects, path);
+      if (redirectTo) {
+          console.log('301 redirect from: `' + path + '` to: `' + redirectTo + '`');
+          resEndpoint.redirect(301, redirectTo);
+          return;
+      }
 
       // Get RouteMatchedObject out of path
       const routeMatchedObject = getRouteMatchedObject(settings.routes, path, lang);
