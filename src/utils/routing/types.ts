@@ -7,7 +7,8 @@ interface Aliases {
 interface Route {
   id: string,
   template: string,
-  aliases: Aliases
+  aliases: Aliases,
+  noIndex?: boolean
 }
 
 interface Redirect {

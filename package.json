@@ -8,7 +8,7 @@
     "dist"
   ],
   "scripts": {
-    "build": "tsc",
+    "build": "rm -rf ./dist && tsc --project tsconfig.json",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {

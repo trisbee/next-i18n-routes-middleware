@@ -36,3 +36,8 @@ A middleware (+ utility tools) for having fully internationalized routes in your
     });
 ```
 
+## Developing
+
+1. clone this git repository close to your project
+2. run: `npm link ../next-i18n-routes-middleware` (depends on our path)
+3. now will be preffered locale library instand of installed from npm, happy developing!

@@ -15,6 +15,9 @@ const getNextI18nRoutesMiddleware: GetNextI18nRoutesMiddleware = (
     const routePatternSupportedLangs = getPatternSupportedLangs(settings.supportedLangs);
 
     if (!!settings.shouldHandleEmptyRoute) {
+
+      console.warn("----------- what settings.shouldHandleEmptyRoute");
+
       server.get('/', (reqEndpoint: Request, resEndpoint: Response) => {
         resEndpoint.redirect(307, `${settings.supportedLangs[0]}/`);
       })
@@ -53,11 +56,11 @@ const getNextI18nRoutesMiddleware: GetNextI18nRoutesMiddleware = (
 
     const handle = app.getRequestHandler();
 
-    server.get("*", (req, res) => {
+    server.get("*", (req: Request, res: Response) => {
       handle(req, res);
     });
 
-    server.post('*', (req, res) => {
+    server.post('*', (req: Request, res: Response) => {
       return handle(req, res)
     });
 

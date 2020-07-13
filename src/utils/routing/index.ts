@@ -15,10 +15,17 @@ const getPath = (url: string): string => {
 const getRouteMatchedObject = (routes: Route[], path: string, currentLang: string) => {
   // 1) get matched route
   const routeMatched = routes.find((route: Route) => {
-    const match = createMatcher(route.aliases[currentLang]);
 
+    if(!route.aliases.hasOwnProperty(currentLang)) {
+      return false;
+    }
+
+    const match = createMatcher(route.aliases[currentLang]);
+    //cast to boolean
     return !!match(path);
   });
+
+  console.warn("-------------- routeMatched #1", routeMatched);
 
   if (!routeMatched) {
     return undefined;
@@ -27,9 +34,13 @@ const getRouteMatchedObject = (routes: Route[], path: string, currentLang: strin
   // 2) Parse path
   const pathParsed = getPathParsed(routeMatched, path, currentLang);
 
+
+  console.warn("-------------- pathParsed", pathParsed);
+
   if (!pathParsed) {
     return undefined;
   }
+
 
   // 3) Put it together
   return  {
