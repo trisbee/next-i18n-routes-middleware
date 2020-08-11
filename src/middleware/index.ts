@@ -20,6 +20,8 @@ const getNextI18nRoutesMiddleware: GetNextI18nRoutesMiddleware = (
       })
     }
 
+    if (settings.trailingSlashRedirect === undefined) settings.trailingSlashRedirect = true;
+
     server.get(`${routePatternSupportedLangs}/*`, (reqEndpoint: Request, resEndpoint: Response) => {
       let path = getPath(reqEndpoint.url);
 
@@ -39,7 +41,7 @@ const getNextI18nRoutesMiddleware: GetNextI18nRoutesMiddleware = (
       const routeMatchedObject = getRouteMatchedObject(settings.routes, path, lang);
 
       // Redirects to url without trailing slash.
-      if (trailingSlash) {
+      if (settings.trailingSlashRedirect && trailingSlash) {
         resEndpoint.redirect(301, path);
         return;
       }

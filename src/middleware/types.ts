@@ -4,6 +4,7 @@ import { Application, RequestHandler } from 'express';
 interface NextI18nRoutesSettings {
   supportedLangs: string[],
   routes: Route[],
+  trailingSlashRedirect?: boolean,
   shouldHandleEmptyRoute?: boolean,
 }
 
