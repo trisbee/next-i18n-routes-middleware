@@ -21,15 +21,29 @@ const getNextI18nRoutesMiddleware: GetNextI18nRoutesMiddleware = (
     }
 
     server.get(`${routePatternSupportedLangs}/*`, (reqEndpoint: Request, resEndpoint: Response) => {
-      const path = getPath(reqEndpoint.url);
+      let path = getPath(reqEndpoint.url);
 
       // Create response query from "lang dynamic parameter" + query string
       const lang = reqEndpoint.params.lang;
       const query = parse(reqEndpoint.url, true).query;
       const responseQuery = {...query, lang};
 
+      // Strip trailing slash from url
+      let trailingSlash = false;
+      if (path.substr(-1) === '/') {
+        path = path.substring(0, path.length-1)
+        trailingSlash = true;
+      }
+
       // Get RouteMatchedObject out of path
       const routeMatchedObject = getRouteMatchedObject(settings.routes, path, lang);
+
+      // Redirects to url without trailing slash.
+      if (trailingSlash) {
+        resEndpoint.redirect(301, path);
+        return;
+      }
+
       if (!routeMatchedObject) {
         return app.render(reqEndpoint, resEndpoint, path, responseQuery);
       }
