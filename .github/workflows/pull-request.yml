@@ -14,5 +14,8 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: '12.x'
+          registry-url: 'https://registry.npmjs.org'
       - run: npm install
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
       - run: npm run build
