@@ -15,6 +15,9 @@ const getPath = (url: string): string => {
 const getRouteMatchedObject = (routes: Route[], path: string, currentLang: string) => {
   // 1) get matched route
   const routeMatched = routes.find((route: Route) => {
+
+    if (route.id.startsWith('/absoluteRoute:')) return false;
+
     const match = createMatcher(route.aliases[currentLang]);
 
     return !!match(path);
