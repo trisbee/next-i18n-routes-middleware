@@ -1,6 +1,6 @@
 {
   "name": "@trisbee/next-i18n-routes-middleware",
-  "version": "2.0.1",
+  "version": "2.1.0",
   "description": "A middleware (+ utility tools) for having fully internationalized routes in your Next.js apps.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -12,11 +12,13 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
+    "@types/accept-language-parser": "^1.5.1",
     "@types/express": "^4.17.3",
-    "next": "^9.4.4",
+    "next": "^10.0.9",
     "typescript": "^3.8.3"
   },
   "dependencies": {
+    "accept-language-parser": "^1.5.0",
     "path-to-regexp": "^6.1.0"
   },
   "author": "Tomáš Uhrík",
