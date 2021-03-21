@@ -4,6 +4,7 @@ import { getPath, getRouteMatchedObject } from '../utils/routing';
 import { getPatternSupportedLangs } from '../utils/lang';
 import { NextFunction } from 'connect';
 import { GetNextI18nRoutesMiddleware } from './types';
+import parser from 'accept-language-parser'
 
 let cashedPaths : {[key: string]: {data: any, template: string}} = {};
 
@@ -15,10 +16,16 @@ const getNextI18nRoutesMiddleware: GetNextI18nRoutesMiddleware = (
 ) => {
   return (_req: Request, _res: Response, next: NextFunction) => {
     const routePatternSupportedLangs = getPatternSupportedLangs(settings.supportedLangs);
+    const defaultLang = settings.supportedLangs[0];
 
     if (!!settings.shouldHandleEmptyRoute) {
       server.get('/', (reqEndpoint: Request, resEndpoint: Response) => {
-        resEndpoint.redirect(307, `${settings.supportedLangs[0]}/`);
+        const header = reqEndpoint.headers['accept-language'];
+        let lang = defaultLang;
+
+        if (header) lang = parser.pick(settings.supportedLangs,parser.parse(header)) || defaultLang;
+
+        resEndpoint.redirect(307, `${lang}` + (settings.trailingSlashRedirect ? '' : '/'));
       })
     }
 
