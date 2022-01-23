@@ -14,7 +14,7 @@
     "@trisbee/next-i18n-routes-middleware": "^0.1.6",
     "@types/node": "^14.14.2",
     "express": "^4.17.1",
-    "next": "^9.4.4",
+    "next": "^11.1.3",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "styled-components": "^5.1.1"
