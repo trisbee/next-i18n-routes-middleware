@@ -14,7 +14,7 @@
   "devDependencies": {
     "@types/accept-language-parser": "^1.5.1",
     "@types/express": "^4.17.3",
-    "next": "^11.1.1",
+    "next": "^12.1.0",
     "typescript": "^3.8.3"
   },
   "dependencies": {
